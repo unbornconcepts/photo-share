@@ -9,3 +9,10 @@ It is important to read over the included [Web Start Kit docs](docs/wsk.md) to g
 Be sure to look over the [installation docs](docs/install.md) to verify your environment is prepared to run WSK.
 
 Once you have verified that your system can run WSK, check out the [commands](docs/commands.md) available to get started.
+
+## iOS
+
+The project includes a couple of iOS plugins to provide better control over some of the native controls.
+
+* [Status Bar](https://github.com/apache/cordova-plugin-statusbar)
+* [Keyboard](https://github.com/driftyco/ionic-plugins-keyboard)
