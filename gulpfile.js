@@ -168,9 +168,6 @@ gulp.task('serve:dist', ['default'], function () {
   });
 });
 
-// Build Production Files
-gulp.task('build', ['styles','jshint', 'html', 'images', 'fonts', 'copy']);
-
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function (cb) {
   runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
@@ -186,6 +183,37 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   url: 'https://example.com',
   strategy: 'mobile'
 }));
+
+// Build Production Files
+//gulp.task('build', ['styles','jshint', 'html', 'images', 'fonts', 'copy']);
+
+var fs = require('fs');
+var path = require('path');
+var cordova = require('cordova-lib').cordova.raw; // promises API
+var buildDir = path.join(__dirname, 'build');
+var plugins = ['org.apache.cordova.file','com.ionic.keyboard','org.apache.cordova.statusbar'];
+var platform_dirs = ['node_modules/cordova-ios', 'node_modules/cordova-android'];
+
+gulp.task('cordova:clean', del.bind(null, ['build']));
+
+gulp.task('cordova:create', ['cordova:clean'], function() {
+    fs.mkdirSync(buildDir);
+    process.chdir(buildDir);
+
+    fs.symlinkSync(path.join('..', 'config.xml'), 'config.xml');
+    fs.symlinkSync(path.join('..', 'www'), 'www');
+
+    return cordova.plugins('add', plugins)
+    .then(function() {
+        // point to node_modules/cordova-android/
+        return cordova.platform('add', platform_dirs);
+    });
+});
+
+gulp.task('cordova:build', function() {
+    process.chdir(buildDir);
+    return cordova.build();
+});
 
 // Load custom tasks from the `tasks` directory
 try { require('require-dir')('tasks'); } catch (err) {}
