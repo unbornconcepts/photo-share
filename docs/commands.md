@@ -19,8 +19,16 @@ This includes linting as well as image, script, stylesheet and HTML optimization
 
 ## IOS Emulator
 
+To use Cordova to package the application as a native app on IOS run the following command once to create the cordova settings in your environment.  Creating the cordova environment does require xcode, ios emulator and android developers kit to be installed.
+
 ```sh
-$ cordova emulate ios
+$ gulp cordova:create
+```
+
+To run the application in the simulator
+
+```sh
+$ gulp cordova:emulate:ios
 ```
 
 This will launch the app in the IOS simulator.  Note: you must run 'gulp' after making any changes to the project or the changes will not be reflected in the simulator.
