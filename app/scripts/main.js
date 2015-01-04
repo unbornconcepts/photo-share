@@ -40,6 +40,12 @@
     navdrawerContainer.classList.add('opened');
   }
 
+  function setCordovaDefaults() {
+    StatusBar.overlaysWebView(false);
+    StatusBar.styleDefault();
+    cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+  }
+
   function onDeviceReady() {
     var id = 'deviceready';
     var listeningElement = document.getElementById('listening');
@@ -51,6 +57,7 @@
     console.log('Received Event: ' + id);
   }
 
+  document.addEventListener('deviceready', setCordovaDefaults, false);
   document.addEventListener('deviceready', onDeviceReady, false);
   main.addEventListener('click', closeMenu);
   menuBtn.addEventListener('click', toggleMenu);

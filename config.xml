@@ -9,4 +9,10 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" onload="true" />
+    </feature>
+    <feature name="Keyboard">
+        <param name="ios-package" value="IonicKeyboard" onload="true" />
+    </feature>
 </widget>
