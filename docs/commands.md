@@ -17,6 +17,14 @@ $ gulp
 Build and optimize the current project, ready for deployment.
 This includes linting as well as image, script, stylesheet and HTML optimization and minification.
 
+## IOS Emulator
+
+```sh
+$ cordova emulate ios
+```
+
+This will launch the app in the IOS simulator.  Note: you must run 'gulp' after making any changes to the project or the changes will not be reflected in the simulator.
+
 ## Performance Insights
 
 ```sh

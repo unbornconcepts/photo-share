@@ -14,6 +14,7 @@ The dependencies are:
 * [Ruby](https://www.ruby-lang.org/)
 * [gulp.js](http://gulpjs.com)
 * [Sass](http://sass-lang.com/install)
+* [Cordova](http://cordova.apache.org/)
 
 ### Node
 
@@ -50,6 +51,14 @@ This will install Gulp globally. Depending on your user account, you may need to
 
 ```sh
 $ sudo npm install
+```
+
+### Cordova
+
+Cordova is used to package the application as a native app for IOS, Android and Windows Phone. You can confirm if Cordova is installed by simply running 'cordova -v' if you have version 4.1 or greater it will work for the project.  To install it:
+
+```sh
+$ npm install -g cordova
 ```
 
 That's it! You should now have everything needed to use the Web Starter Kit.
