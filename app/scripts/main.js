@@ -40,6 +40,18 @@
     navdrawerContainer.classList.add('opened');
   }
 
+  function onDeviceReady() {
+    var id = 'deviceready';
+    var listeningElement = document.getElementById('listening');
+    var receivedElement = document.getElementById('received');
+
+    listeningElement.setAttribute('style', 'display:none;');
+    receivedElement.setAttribute('style', 'display:block;');
+
+    console.log('Received Event: ' + id);
+  }
+
+  document.addEventListener('deviceready', onDeviceReady, false);
   main.addEventListener('click', closeMenu);
   menuBtn.addEventListener('click', toggleMenu);
   navdrawerContainer.addEventListener('click', function (event) {
