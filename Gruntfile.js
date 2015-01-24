@@ -3,7 +3,12 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     connect: {
-      uses_defaults: {}
+      server: {
+        options: {
+          port: 9001,
+          base: 'www'
+        }
+      }
     }
   });
 

@@ -1,7 +1,7 @@
 node_modules
 .sass-cache
-www
 .tmp
 build
 platforms
 plugins
+.DS_Store
